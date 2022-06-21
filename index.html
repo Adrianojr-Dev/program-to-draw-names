@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteios</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var names = []
+        function add(){
+            var n = window.document.getElementById("name1")
+            names.push(n.value)
+            console.log(names)
+            n.value = ""
+        }
+
+        function draw(){
+            var res = window.document.getElementById("result")
+            var np = names.length
+            if (names[0] == null){
+                res.innerHTML = "Primeiro digite um nome"     
+            }else{
+            
+            res.innerHTML = names[Math.floor(Math.random()*np)] 
+            console.log(names)   
+            }
+        }
+
+        function reset(){
+            names = []
+            n.value = ""    
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sorteie nomes</h1>
+    </header>
+    <section class="container">
+        <div class="elements">
+            <label><h1>Digite um nome:</h1> </label>
+        </div>
+
+        <div class="elements">
+            <input type="text" id="name1" class="itext" placeholder="Digite um nome">
+            <input type="button" value="Adicionar" onclick="add()" class="but">
+            <input type="button" value="Resetar" class="but" onclick="reset()">
+        </div>
+
+        <div id="result">
+            <h1>resultado</h1>
+        </div>
+        <input type="button" value="Sortear" id="butd" onclick="draw()"> 
+    </section>
+</body>
+</html>
